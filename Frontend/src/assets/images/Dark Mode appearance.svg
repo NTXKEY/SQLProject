@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #e8e8e8;
+        stroke: #000;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+        stroke-width: 1px;
+      }
+
+      .cls-2 {
+        fill: #3c393a;
+        stroke: #363636;
+      }
+
+      .cls-2, .cls-6 {
+        fill-rule: evenodd;
+      }
+
+      .cls-3 {
+        fill: #0354f0;
+        stroke: #0354f0;
+      }
+
+      .cls-4, .cls-6 {
+        fill: #b3b3b3;
+        stroke: #b3b3b3;
+      }
+
+      .cls-5 {
+        fill: #969696;
+        stroke: #969696;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" width="500" height="500"/>
+  <path id="Rectangle_1_copy" data-name="Rectangle 1 copy" class="cls-2" d="M58.352,100.275h384.3a8,8,0,0,1,8,8v284.45a8,8,0,0,1-8,8H58.352a8,8,0,0,1-8-8V108.275A8,8,0,0,1,58.352,100.275Z"/>
+  <rect class="cls-3" x="70" y="123" width="25" height="25" rx="4" ry="4"/>
+  <rect id="Rectangle_2_copy_7" data-name="Rectangle 2 copy 7" class="cls-3" x="405" y="123" width="25" height="25" rx="4" ry="4"/>
+  <rect id="Rectangle_2_copy_8" data-name="Rectangle 2 copy 8" class="cls-4" x="368" y="123" width="25" height="25" rx="4" ry="4"/>
+  <rect id="Rectangle_2_copy" data-name="Rectangle 2 copy" class="cls-5" x="120" y="123" width="60" height="25" rx="4" ry="4"/>
+  <rect id="Rectangle_2_copy_6" data-name="Rectangle 2 copy 6" class="cls-5" x="205" y="123" width="140" height="25" rx="4" ry="4"/>
+  <path id="Rectangle_2_copy_9" data-name="Rectangle 2 copy 9" class="cls-6" d="M209,167H426a4,4,0,0,1,4,4V365a4,4,0,0,1-4,4H209a4,4,0,0,1-4-4V171A4,4,0,0,1,209,167Z"/>
+  <rect id="Rectangle_2_copy_2" data-name="Rectangle 2 copy 2" class="cls-5" x="70" y="167" width="110" height="25" rx="4" ry="4"/>
+  <rect id="Rectangle_2_copy_3" data-name="Rectangle 2 copy 3" class="cls-5" x="70" y="211" width="110" height="25" rx="4" ry="4"/>
+  <rect id="Rectangle_2_copy_4" data-name="Rectangle 2 copy 4" class="cls-5" x="70" y="255" width="110" height="25" rx="4" ry="4"/>
+  <rect id="Rectangle_2_copy_5" data-name="Rectangle 2 copy 5" class="cls-4" x="70" y="344" width="110" height="25" rx="4" ry="4"/>
+</svg>

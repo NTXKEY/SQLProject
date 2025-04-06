@@ -1,0 +1,72 @@
+import PropTypes from "prop-types";
+
+import { motion as m } from "framer-motion";
+
+import { OTP_input } from "./OTP_input";
+import { Theme_toggle } from "../../Componets/Theme_toggle";
+
+import { useContext } from "react";
+import { ThemeContext } from "../../Context/Contexts";
+
+export const Verification = ({ func, go_back }) => {
+  const { theme, toggle } = useContext(ThemeContext);
+
+  return (
+    <>
+      {/*//! Primary */}
+      <m.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        className={` ${theme} w-full pt-14 pb-5 xl:w-[500px] h-dvh flex flex-col justify-between items-center dark:bg-dark-bg transition-all `}
+      >
+        {/* //? Header */}
+        <header className="flex flex-col gap-5 justify-center items-center p-5  w-full h-1/5">
+          <h2 className="font-inter font-extrabold text-4xl text-light-primary dark:text-dark-primary tracking-tight underline underline-offset-8 ">
+            Vital Cure
+          </h2>
+        </header>
+
+        <div className="flex flex-col justify-center items-center w-full gap-5 relative bottom-10 ">
+          <h2 className="font-inter font-extrabold text-xl text-light-primary dark:text-dark-primary tracking-tighter">
+            We just need to verify your Email
+          </h2>
+          <div className="flex flex-col justify-center items-center p-5 mx-auto">
+            <h2 className="text-2xl text-light-primary dark:text-[rgb(50,84,149,.75)]  ">
+              We have sent your an OTP!
+            </h2>
+          </div>
+          <OTP_input length={6} />
+          <h2 className=" text-light-primary dark:text-dark-primary ">
+            Didn&apos;t recive the OTP?
+            <button className=" text-dark-primary dark:text-light-primary p-2 font-semibold ">
+              Resend
+            </button>
+          </h2>
+          <button
+            className=" flex justify-center items-center shadow-[0px_0px_0.5rem_rgba(0,0,0,0.25)] bg-light-primary text-[#ffffff] text-base dark:bg-dark-primary rounded-md h-[50px] w-1/4 my-5"
+            onClick={func}
+          >
+            verify
+          </button>
+          <button
+            className="flex justify-center items-center shadow-[0px_0px_0.5rem_rgba(0,0,0,0.25)] bg-light-primary text-[#ffffff] text-xs  dark:bg-dark-primary rounded-sm h-[30px] w-1/5"
+            onClick={go_back}
+          >
+            Back
+          </button>
+        </div>
+        <div className="w-full self-end flex items-end justify-end px-5">
+          <Theme_toggle handleToggle={toggle} theme={theme} />
+        </div>
+      </m.div>
+    </>
+  );
+};
+
+Verification.propTypes = {
+  status: PropTypes.string,
+  func: PropTypes.func,
+  go_back: PropTypes.func,
+};
