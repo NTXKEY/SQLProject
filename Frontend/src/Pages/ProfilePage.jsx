@@ -19,7 +19,7 @@ import {
 } from "react-icons/md";
 import { IoMdTrash } from "react-icons/io";
 import { GrClose } from "react-icons/gr";
-import { backEndUrl, GetProfile } from "@/API/apis";
+import { backEndUrl } from "@/API/apis";
 
 // import ReactCrop, { Crop } from "react-image-crop";
 // import "react-image-crop/dist/ReactCrop.css";

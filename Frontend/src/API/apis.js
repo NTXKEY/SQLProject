@@ -29,7 +29,7 @@ export const loginAPI = async (body) => {
       "http://localhost:5000/api/auth/login",
       body
     );
-    console.log(response)
+    console.log(response);
     return response;
   } catch (error) {
     console.error(error);
@@ -37,22 +37,28 @@ export const loginAPI = async (body) => {
   }
 };
 
-// export const verifyResetEmail = async (body) => {
-//   try {
-//     const response = await axios.post(
-//       "http://localhost:5000/api/auth/passwordReset/verify",
-//       body
-//     );
-//     return response;
-//   } catch (error) {
-//     return error.response;
-//   }
-// };
-
 export const saveDetailsAPI = async (body) => {
-  const {username, name, address, contactNumber, DOB, gender, oocupation, medicalConditions} = body
-  console.log(body)
-  const data = {username, name, address, contactNumber, DOB, gender, oocupation, medicalConditions}
+  const {
+    username,
+    name,
+    address,
+    contactNumber,
+    DOB,
+    gender,
+    oocupation,
+    medicalConditions,
+  } = body;
+  console.log(body);
+  const data = {
+    username,
+    name,
+    address,
+    contactNumber,
+    DOB,
+    gender,
+    oocupation,
+    medicalConditions,
+  };
   try {
     const response = await axios.patch(
       `http://localhost:5000/api/user/patch/${username}/details`,
@@ -119,38 +125,9 @@ export const accountStatus = async (body) => {
   }
 };
 
-// export const getAccountType = async (body) => {
-//   try {
-//     const { email } = body;
-//     const getUsernameRequest = await axios.post(
-//       "http://localhost:5000/api/auth/getOne",
-//       { email }
-//     );
-//     const username = getUsernameRequest.data.result.username;
-//     const response = await axios.get(
-//       `http://localhost:5000/api/user/get/${username}`
-//     );
-//     if (response.data.name) return "user";
-
-//     const response2 = await axios.get(
-//       `http://localhost:5000/api/doctor/get/${username}`
-//     );
-
-//     if (response2.data.name) return "doctor";
-//     return { response: { data: { message: "User Not Found" } } };
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
 export const getDetails = async (body) => {
   try {
-    const { email } = body;
-    const getUsernameRequest = await axios.post(
-      "http://localhost:5000/api/auth/getOne",
-      { email }
-    );
-    const username = getUsernameRequest.data.result.username;
+    const { username } = body;
     const response = await axios.get(
       `http://localhost:5000/api/user/get/${username}`
     );
@@ -169,51 +146,6 @@ export const getDoctorData = async () => {
     return response.data;
   } catch (error) {
     console.error(error);
-  }
-};
-
-// export const getDetails = async (body) => {
-//   try {
-//     const { email } = body;
-//     const getUsernameRequest = await axios.post(
-//       `${backEndUrl}/api/auth/getOne`,
-//       { email }
-//     );
-//     const username = getUsernameRequest.data.result.username;
-//     const response = await axios.get(`${backEndUrl}/api/user/get/${username}`);
-//     return response;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
-export const GetProfile = async (user) => {
-  try {
-    const response = await axios.get(
-      `${backEndUrl}/api/user/get/profile/${user}`,
-      {
-        responseType: "blob",
-      }
-    );
-    const contentType = response.headers["content-type"];
-    if (contentType.startsWith("image/")) {
-      const url = URL.createObjectURL(response.data);
-
-      return url;
-    } else if (contentType.includes("application/json")) {
-      const text = await response.data.text();
-      const json = JSON.parse(text);
-      if (json.profilePic === null) {
-        return null;
-      }
-    }
-  } catch (err) {
-    if (err.response && err.response.status === 404) {
-      console.log("Profile pic file not found or user not found.");
-    } else {
-      console.error("Error fetching profile picture:", err);
-    }
-    return;
   }
 };
 
@@ -244,13 +176,25 @@ export const deleteUser = async (user) => {
   }
 };
 
-export const getAllSQLData = async() => {
-  try { 
-    const response = await axios.get("http://localhost:5000/api/user/get/all")
-    console.log("response", response)
-    return response
-
+export const getAllSQLData = async () => {
+  try {
+    const response = await axios.get("http://localhost:5000/api/user/get/all");
+    console.log("response", response);
+    return response;
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
-}
+};
+
+export const addAppointment = async (body) => {
+  console.log(body);
+  try {
+    const response = await axios.post(
+      "http://localhost:5000/api/appointments/add",
+      body
+    );
+    console.log(response);
+  } catch (error) {
+    console.error(error);
+  }
+};

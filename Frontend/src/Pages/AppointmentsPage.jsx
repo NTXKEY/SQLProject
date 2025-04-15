@@ -17,16 +17,19 @@ import {
 import { IoPhonePortraitOutline } from "react-icons/io5";
 import { CiTimer } from "react-icons/ci";
 import toast from "react-hot-toast";
+import { addAppointment } from "@/API/apis";
 export const AppointmentsPage = () => {
   const { theme } = useContext(themeContext);
   const { userDetails } = useContext(detailsContext);
   const { doctorDetails } = useContext(doctorDetailsContext);
 
   const [appointmentDetails, setAppointmentDetails] = useState({
-    doctor: doctorDetails.name,
-    special: doctorDetails.special,
+    name: userDetails.name,
+    username:userDetails.username,
+    email:userDetails.email,
+    doctorName: doctorDetails.name,
     reason: "",
-    type: "",
+    time:"",
   });
 
   const handleAppointmentDetails = (event) => {
@@ -34,10 +37,11 @@ export const AppointmentsPage = () => {
     setAppointmentDetails({ ...appointmentDetails, [name]: value });
   };
 
-  const timings = ["5:00 Am", "6:00 Am", "7:00 Am", "8:00 Am"];
+  const timings = ["8:00", "7:00", "9:00", "10:00", "11:00", "12:00" ];
 
-  const handleConfirm = () => {
-    console.log("appointmentDetails", appointmentDetails);
+  const handleConfirm = async() => {
+    // console.log("appointmentDetails", appointmentDetails);
+    const response = await addAppointment(appointmentDetails) 
     toast.success("Appointment Booked Successfully");
   };
 
@@ -67,15 +71,15 @@ export const AppointmentsPage = () => {
               icon={<IoPhonePortraitOutline />}
               title="Contact Number"
               type="text"
-              disabled
-              value={userDetails.contactNumber || "none"}
+              
+              // value={userDetails.contactNumber || "none"}
               func={(event) => handleAppointmentDetails(event)}
             />
           </div>
           <div className="flex gap-5">
             <PersonalizationInput
               icon={<FaUserDoctor />}
-              title="Doctor"
+              title="doctorName"
               type="text"
               disabled
               value={doctorDetails.name ? `${doctorDetails.name}` : "none"}
@@ -109,8 +113,8 @@ export const AppointmentsPage = () => {
                 <CiTimer />
                 <select
                   className="w-full ml-2 dark:bg-dark-bg-alt"
-                  name=""
-                  id=""
+                  name="time"
+                  onChange={handleAppointmentDetails}
                 >
                   {timings.map((timing) => {
                     return (
@@ -149,13 +153,13 @@ export const AppointmentsPage = () => {
               <input
                 type="radio"
                 name="appointmentType"
-                onChange={() => {
-                  setAppointmentDetails({
-                    ...appointmentDetails,
-                    type: "inPerson",
-                  });
-                }}
-                id=""
+                // onChange={() => {
+                //   setAppointmentDetails({
+                //     ...appointmentDetails,
+                //     type: "inPerson",
+                //   });
+                // }}
+                // id=""
               />
               <span className="ml-3 font-semibold font-inter text-xs">
                 In Person

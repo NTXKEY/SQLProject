@@ -100,15 +100,15 @@ function App() {
           path: "/user/home/settings",
           element: <SettingsPage />,
           children: [
-            {
-              index: true,
-              path: "/user/home/settings",
-              element: <ProfilePage />,
-            },
-            {
-              path: "/user/home/settings/account",
-              element: <AccountPage />,
-            },
+            // {
+            //   index: true,
+            //   path: "/user/home/settings",
+            //   element: <ProfilePage />,
+            // },
+            // {
+            //   path: "/user/home/settings/account",
+            //   element: <AccountPage />,
+            // },
             {
               path: "/user/home/settings/appearance",
               element: <AppearancePage />,

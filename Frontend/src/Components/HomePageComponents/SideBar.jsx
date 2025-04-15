@@ -14,12 +14,12 @@ import { GrHomeRounded } from "react-icons/gr";
 import { BiSearchAlt } from "react-icons/bi";
 import { BsCalendar } from "react-icons/bs";
 import { IoSettingsOutline } from "react-icons/io5";
-import { BiSupport } from "react-icons/bi";
+// import { BiSupport } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
-import { GoDeviceCameraVideo } from "react-icons/go";
+// import { GoDeviceCameraVideo } from "react-icons/go";
 import { detailsContext, themeContext } from "@/Context/Contexts";
 // import { ThemeToggle } from "../ThemeToggle";
-import { GetProfile } from "@/API/apis";
+// import { GetProfile } from "@/API/apis";
 import ProfileInBar from "../ProfileComponents/ProfileInBar.jsx";
 import { IoIosLogOut } from "react-icons/io";
 
@@ -54,14 +54,14 @@ export const SideBar = () => {
     );
   };
   const [Default, setDefault] = useState(null);
-  const profile = async () => {
-    const res = await GetProfile(userDetails.username);
-    console.log("res", res);
-    res === null ? setDefault(null) : setDefault(res);
-  };
-  useEffect(() => {
-    profile();
-  }, []);
+  // const profile = async () => {
+  //   const res = await GetProfile(userDetails.username);
+  //   console.log("res", res);
+  //   res === null ? setDefault(null) : setDefault(res);
+  // };
+  // useEffect(() => {
+  //   profile();
+  // }, []);
   return (
     <aside className={`${theme} h-dvh p-5`}>
       <nav className="h-full flex flex-col bg-white-bg dark:bg-dark-bg dark:border-2 dark:border-white-bg rounded-lg ">

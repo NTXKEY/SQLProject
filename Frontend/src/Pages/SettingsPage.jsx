@@ -1,18 +1,17 @@
-import { themeContext } from "@/Context/Contexts";
+import { detailsContext, themeContext } from "@/Context/Contexts";
 import { LucideAppWindowMac } from "lucide-react";
 import PropTypes from "prop-types";
 import { useContext, useState } from "react";
-import { IoSettingsOutline } from "react-icons/io5";
-import { TbUserEdit } from "react-icons/tb";
+// import { IoSettingsOutline } from "react-icons/io5";
+// import { TbUserEdit } from "react-icons/tb";
 import { Outlet, useNavigate } from "react-router-dom";
 
 export const SettingsPage = () => {
   const { theme } = useContext(themeContext);
-
+  const { userDetails } = useContext(detailsContext);
+  console.log(userDetails);
   const [active, setActive] = useState({
-    Profile: true,
-    Account: false,
-    Appearance: false,
+    Appearance: true,
   });
 
   const handleActiveStatus = (key) => {
@@ -37,7 +36,7 @@ export const SettingsPage = () => {
           Settings
         </span>
         <div className="flex-1 flex flex-col justify-center mt-10">
-          <SettingsPageSideBarItems
+          {/* <SettingsPageSideBarItems
             icon={<TbUserEdit size={15} />}
             text={"Profile"}
             path={"/user/home/settings"}
@@ -50,7 +49,7 @@ export const SettingsPage = () => {
             path={"/user/home/settings/account"}
             active={active.Account}
             func={handleActiveStatus}
-          />
+          /> */}
           <SettingsPageSideBarItems
             icon={<LucideAppWindowMac size={15} />}
             text={"Appearance"}

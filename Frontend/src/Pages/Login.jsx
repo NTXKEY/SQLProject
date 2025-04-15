@@ -39,13 +39,16 @@ export const Login = () => {
 
       console.log(response)
 
-    //  const userDetailsRequest = await getDetails({ username: username });
+     const userDetailsRequest = await getDetails({ username: username });
 
-    //  handleUserDetails(userDetailsRequest.data);
+      console.log(userDetailsRequest)
+
+     handleUserDetails(userDetailsRequest.data);
 
       Navigate(`/user/home`);
 
       toast.success("Login successful");
+
     } else if (
       response.data.message == "Invalid credentials"
     ) {
