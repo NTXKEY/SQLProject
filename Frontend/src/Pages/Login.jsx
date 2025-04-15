@@ -16,7 +16,7 @@ import { InputFieldPassword } from "../Components/PageComponents/InputFieldPassw
 
 export const Login = () => {
   const Navigate = useNavigate();
-  const [details, setDetails] = useState({ email: "", password: "" });
+  const [details, setDetails] = useState({ username: "", password: "" });
 
   //* The handleToggle function toggles between light and dark themes and saves the selected theme to local storage.
   const { theme } = useContext(themeContext);
@@ -29,25 +29,27 @@ export const Login = () => {
 
   const validateLogin = async (event) => {
     event.preventDefault();
-    const { email, password } = details;
-    if (!email || !password) {
+    const { username, password } = details;
+    if (!username || !password) {
       return;
     }
-    const response = await loginAPI({ email, password });
+    const response = await loginAPI({ username, password });
     if (response.data.message == "Login successful") {
-      localStorage.setItem("email", email);
+      localStorage.setItem("username", username); 
 
-      const userDetailsRequest = await getDetails({ email: email });
+      console.log(response)
 
-      handleUserDetails(userDetailsRequest.data);
+    //  const userDetailsRequest = await getDetails({ username: username });
+
+    //  handleUserDetails(userDetailsRequest.data);
 
       Navigate(`/user/home`);
 
       toast.success("Login successful");
     } else if (
-      response.data.message.message == "Request failed with status code 400"
+      response.data.message == "Invalid credentials"
     ) {
-      toast.error(response.data.message.response.data.message);
+      toast.error(response.data.message);
     } else {
       toast.error(response.data.response.message);
     }
@@ -98,10 +100,10 @@ export const Login = () => {
             >
               <div className="w-full flex flex-col justify-center items-center gap-5 ">
                 <InputFields
-                  inp_name="email"
-                  inp_title="Email"
-                  inp_type="email"
-                  inp_placeholder="Enter your Email"
+                  inp_name="username"
+                  inp_title="username"
+                  inp_type="text"
+                  inp_placeholder="Enter your Username"
                   func={handleChange}
                 />
 
@@ -134,7 +136,7 @@ export const Login = () => {
                   </m.button>
                 </div>
 
-                <m.h2
+                {/* <m.h2
                   initial={{ transform: "translateX(50%)", opacity: 0 }}
                   animate={{ transform: "translateX(0%)", opacity: 1 }}
                   exit={{ transform: "translateX(50%)", opacity: 0 }}
@@ -143,13 +145,13 @@ export const Login = () => {
               font-inter font-bold text-xs tracking-normal text-light-primary dark:text-dark-primary py-5 underline "
                 >
                   <Link to="/forgot-password"> Forgot your Password? </Link>
-                </m.h2>
+                </m.h2> */}
               </div>
             </form>
 
             <div className="flex flex-col justify-center items-center w-[400px] gap-5">
               {/* //? Divider */}
-              <div className="flex justify-center items-center w-full gap-5">
+              <div className="flex justify-center items-center w-full mt-5 gap-5">
                 <m.div
                   initial={{ width: 0 }}
                   animate={{ width: "80%" }}

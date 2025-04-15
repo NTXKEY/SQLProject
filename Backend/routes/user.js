@@ -4,14 +4,20 @@ import {
   getAllUsers,
   getUserByUsername,
   addUser,
-  deleteUserByUsername
+  deleteUserByUsername,
+  patchUserByUsername,
+  patchUserDetailsByUsername
 } from '../controllers/userController.js';
 
 const router = express.Router();
 
 router.get('/get/all', getAllUsers);
-router.get('/:username', getUserByUsername);
+router.get('/get/:username', getUserByUsername);
 router.post('/add/user', addUser);
-router.delete('/:username', deleteUserByUsername);
+router.delete('/add/:username', deleteUserByUsername);
+router.patch('/patch/:username', patchUserByUsername);
+router.patch('/patch/:username/details', patchUserDetailsByUsername);
+
+
 
 export default router;

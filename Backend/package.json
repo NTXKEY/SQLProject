@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "yarn && cls && nodemon src/server.js"
+    "start": "node src/index.js",
+    "dev": "yarn && cls && nodemon src/index.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",

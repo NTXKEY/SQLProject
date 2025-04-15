@@ -8,8 +8,8 @@ import {
 
 const router = express.Router();
 
-router.get('/', getAllDoctors);
-router.post('/', addDoctor);
+router.get('/get/all', getAllDoctors);
+router.post('/add', addDoctor);
 router.get('/:username', getDoctorByUsername);
 router.delete('/:username', deleteDoctorByUsername);
 

@@ -25,19 +25,17 @@ export const Personalization = () => {
   const { theme } = useContext(themeContext);
   const { signUpDetails, handleSignUpDetails, setSignUpDetails } =
     useContext(signupDetailsContext);
-
   const handleGenderChange = (value) => {
     setSignUpDetails({ ...signUpDetails, gender: value });
   };
 
   const completeSignUp = async (event) => {
     event.preventDefault();
-    // console.log(signUpDetails);
     const response = await saveDetailsAPI(signUpDetails);
-    if (response.data.message === "User saved successfully") {
+    if (response.data.message === "User details updated successfully") {
       toast.success("Account created");
       navigate("/login");
-    }
+    } 
   };
 
   return (

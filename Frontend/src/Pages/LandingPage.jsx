@@ -8,14 +8,26 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
 import CountUp from "react-countup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ScrollTrigger from "react-scroll-trigger";
 import { useNavigate } from "react-router-dom";
+import { getAllSQLData } from "@/API/apis";
 
 export const LandingPage = () => {
   const navigate = useNavigate();
   const images = [Image_1, Image_2, Image_3, Image_4, Image_2, Image_4];
   const [CounterState, setCounterState] = useState(false);
+  
+const temp = async () =>{
+
+  
+  const res = getAllSQLData()
+  console.log(res)
+}
+
+temp()
+  
+
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">

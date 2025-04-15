@@ -59,8 +59,8 @@ export const AppointmentsPage = () => {
               icon={<FaUserInjured />}
               title="Patient Name"
               type="text"
-              disabled
-              value={userDetails.name || "none"}
+              //disabled
+              //value={userDetails.name || "none"}
               func={(event) => handleAppointmentDetails(event)}
             />
             <PersonalizationInput

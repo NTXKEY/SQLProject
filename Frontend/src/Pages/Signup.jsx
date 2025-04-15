@@ -37,12 +37,14 @@ export const Signup = () => {
       password,
     });
 
+    console.log(response)
+
     if (response.data.message == "User registered successfully") {
-      toast.success("Verify Your Email");
+      // toast.success("Verify Your Email");
       localStorage.setItem("email", email);
-      Navigate("/verify");
+      Navigate("/Personalization");
     } else if (
-      response.data.message.message == "Request failed with status code 400"
+      response.data.message == "Username or email already exists"
     ) {
       toast.error("User already exists");
       return;

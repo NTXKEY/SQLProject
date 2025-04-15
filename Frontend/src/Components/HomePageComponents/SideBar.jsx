@@ -112,13 +112,13 @@ export const SideBar = () => {
               active={isActive.Appointments}
               path="/user/home/appointments"
             />
-            <SideBarItems
+            {/* <SideBarItems
               icon={<GoDeviceCameraVideo size={20} />}
               text={"Consultations"}
               func={(e) => handleActiveStatus(e)}
               active={isActive.Consultations}
               path="/user/home/Consultations"
-            />
+            /> */}
             {isSideBarExpanded ? (
               <ul
                 className={`flex items-center gap-2 mt-8 cursor-pointer font-inter transition-all text-sm overflow-hidden whitespace-nowrap ${
@@ -137,13 +137,13 @@ export const SideBar = () => {
               active={isActive.Settings}
               path="/user/home/settings"
             />
-            <SideBarItems
+            {/* <SideBarItems
               icon={<BiSupport size={20} />}
               text={"Support"}
               func={(e) => handleActiveStatus(e)}
               active={isActive.Support}
               path="/user/home/help"
-            />
+            /> */}
           </ul>
         </ExpandedContext.Provider>
 

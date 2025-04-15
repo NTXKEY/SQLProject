@@ -29,6 +29,7 @@ export const loginAPI = async (body) => {
       "http://localhost:5000/api/auth/login",
       body
     );
+    console.log(response)
     return response;
   } catch (error) {
     console.error(error);
@@ -36,22 +37,25 @@ export const loginAPI = async (body) => {
   }
 };
 
-export const verifyResetEmail = async (body) => {
-  try {
-    const response = await axios.post(
-      "http://localhost:5000/api/auth/passwordReset/verify",
-      body
-    );
-    return response;
-  } catch (error) {
-    return error.response;
-  }
-};
+// export const verifyResetEmail = async (body) => {
+//   try {
+//     const response = await axios.post(
+//       "http://localhost:5000/api/auth/passwordReset/verify",
+//       body
+//     );
+//     return response;
+//   } catch (error) {
+//     return error.response;
+//   }
+// };
 
 export const saveDetailsAPI = async (body) => {
+  const {username, name, address, contactNumber, DOB, gender, oocupation, medicalConditions} = body
+  console.log(body)
+  const data = {username, name, address, contactNumber, DOB, gender, oocupation, medicalConditions}
   try {
-    const response = await axios.post(
-      "http://localhost:5000/api/user/save",
+    const response = await axios.patch(
+      `http://localhost:5000/api/user/patch/${username}/details`,
       body
     );
     return response;
@@ -239,3 +243,14 @@ export const deleteUser = async (user) => {
     return null;
   }
 };
+
+export const getAllSQLData = async() => {
+  try { 
+    const response = await axios.get("http://localhost:5000/api/user/get/all")
+    console.log("response", response)
+    return response
+
+  } catch (error) {
+    console.error(error)
+  }
+}

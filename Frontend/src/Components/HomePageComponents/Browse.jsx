@@ -17,6 +17,7 @@ export const Browse = () => {
   useEffect(() => {
     const getData = async () => {
       const response = await getDoctorData();
+      console.log(response)
       setDoctors(response);
       setIsLoading(false);
     };

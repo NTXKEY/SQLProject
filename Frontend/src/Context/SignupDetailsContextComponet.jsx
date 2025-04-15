@@ -20,11 +20,11 @@ export const SignupDetailsContextComponent = ({ children }) => {
 
   const handleSignUpDetails = (event) => {
     const { name, value } = event.target;
-    if (name === "medicalConditions") {
-      let arrData = value.split(",");
-      setSignUpDetails({ ...signUpDetails, [name]: [...arrData] });
-      return;
-    }
+    // if (name === "medicalConditions") {
+    //   let arrData = value.split(",");
+    //   setSignUpDetails({ ...signUpDetails, [name]: [...arrData] });
+    //   return;
+    // }
     if (name === "DOB") {
       const currentAge = new Date().getFullYear() - value.split("-")[0];
       // console.log(currentAge);

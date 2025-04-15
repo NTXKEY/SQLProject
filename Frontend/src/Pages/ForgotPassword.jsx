@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 
 import Img from "../assets/Backgrounds/Doctor illustration 2.jpg";
 import { Outlet, useNavigate } from "react-router-dom";
-import { updatePassword, verifyDetails, verifyResetEmail } from "@/API/apis";
+import { updatePassword, verifyDetails } from "@/API/apis";
 import toast from "react-hot-toast";
 
 export const ForgotPassword = () => {
